@@ -222,9 +222,9 @@ import FLAnimatedImage
             photosViewController = childViewController
         }
         
-        guard let imageView = photosViewController.currentPhotoViewController?.zoomingImageView.imageView as UIImageView? else {
-            assertionFailure("No. ಠ_ಠ")
-            return
+        var imageView : UIImageView! = photosViewController.currentPhotoViewController?.zoomingImageView.imageView
+        if (imageView == nil) {
+            imageView = UIImageView()
         }
         
         if !transitionContext.isInteractive {
