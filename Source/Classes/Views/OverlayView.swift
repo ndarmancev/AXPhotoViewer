@@ -220,8 +220,8 @@ import UIKit
     }
     
     open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if let view = super.hitTest(point, with: event) as? UIControl {
-            return view
+        if let view = super.hitTest(point, with: event) as? UIView {
+            return (view != self) ? view : nil;
         }
         
         return nil
